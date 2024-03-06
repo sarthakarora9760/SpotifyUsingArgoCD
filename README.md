@@ -53,7 +53,8 @@ After some time, It got synced and healthy
 
 In the logs, I was able to see a successfull rollout from previous version to new version. (Spotifyv1 to netflxv1)<br><br>
 
-![Uploading Screenshot 2024-03-06 120625.png…]()
+![Screenshot 2024-03-06 120625](https://github.com/sarthakarora9760/SpotifyUsingArgoCD/assets/60189057/6a4c6eff-6afe-46c5-b437-73f92144497c)
+
 
 
 Cleanups:-<br><br>
