@@ -1,0 +1,40 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+metadata:
+  name: my-app-rollout
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: my-app
+  template:
+    metadata:
+      labels:
+        app: my-app
+    spec:
+      containers:
+      - name: my-app
+        image: saarora123/spotifyv1
+        ports:
+        - containerPort: 8080
+  strategy:
+    canary:
+      steps:
+      - setWeight: 10
+        pause: {}
+      - pause: {}
+      - setWeight: 20
+        pause: {}
+      - pause: {}
+      - setWeight: 30
+        pause: {}
+      - pause: {}
+      - setWeight: 50
+        pause: {}
+      analysis:
+        interval: 10s
+        maxWeight: 50
+        stepWeight: 5
+        metrics:
+        - name: request-success-rate
+          threshold: 99
