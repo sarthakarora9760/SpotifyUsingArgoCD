@@ -2,7 +2,19 @@
 Deploying my Spotify and netflix projects using Argo Rollout strategies and using Argo CD to monitor for changes in this github repository.
 
 
-Step-1: I had my own web application projects so I hosted the source code on this github repository.
+
+NOTES:-
+
+1- Docker Images for both versions of web applications are available here:-
+
+saarora123/netflixv1:latest
+saarora123/spotifyv1:latest
+
+
+2- Dev folder contains deployment.yaml file that points to specific docker images for deployment.
+
+
+Step-1: I had my own web application projects so I hosted the source code for the same in this github repository under folders netflix and spotify.
 
 
 Step-2: I installed minikube cluster on my windows machine using Docker as a driver (Kubernetes v1.28.3 on Docker 24.0.7) and after executing minikube start --driver=docker, I was able to view the cluster in my Docker Desktop.
@@ -13,10 +25,11 @@ Then, I followed the offical guide to install and setup Argo CD into my cluster 
 
 Step=3: I then installed Argo Rollouts for my cluster and followed the offical guide.
 
+
 Step-4: Then, I dockerized two of my simple web applications (Netflix by Sarthak) and (Spotify by Sarthak) using a simple Dockerfile that contains nginx:alpine as base image. Also, I pushed the images to my public registry saarora123/spotifyv1 and saarora123/netflixv1
 
 
-Then in this github repository, I created a fresh kubernetes manifests file to use the latest docker image that I just built.
+Then in this github repository, I created a fresh kubernetes manifests file (dev/deployment.yaml) to use the latest docker image that I just built.
 Also, I created application.yaml which I applied to my cluster. Available in the main branch by the name application.yaml
 
 
