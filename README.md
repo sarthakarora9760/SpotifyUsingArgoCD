@@ -1,3 +1,7 @@
+Notes:-
+
+Docker images used in both applications:-
+saarora123/spotifyv1, saarora123/netflixv1
 Step-1: I had my own web application projects so I hosted the source code for the same in this github repository under folders netflix and spotify.
 
 
