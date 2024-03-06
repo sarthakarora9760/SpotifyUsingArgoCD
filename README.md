@@ -29,6 +29,7 @@ In my 8080 port, I was able to access the container.
 Step-5: Then, I created rollout.yaml to define canary rollout stratefy for my rollouts and I applied it to my cluster. It's available in this same github repository in the main branch by name rollout.yaml
 
 Step-6: To trigger the rollout, I changed my deployment.yaml file to point to my new docker image saarora123/netflixv1
+
 ![Screenshot 2024-03-06 120127](https://github.com/sarthakarora9760/SpotifyUsingArgoCD/assets/60189057/81712f9f-50a3-477d-bd26-d86eef5e9e77)
 
 ![Screenshot 2024-03-06 120127](https://github.com/sarthakarora9760/SpotifyUsingArgoCD/assets/60189057/e57635f8-37dd-454f-80f9-a5156f3ffbf1)
