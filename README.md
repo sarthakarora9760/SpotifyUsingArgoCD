@@ -1,17 +1,24 @@
 # SpotifyUsingArgoCD
 Deploying my Spotify and netflix projects using Argo Rollout strategies and using Argo CD to monitor for changes in this github repository.
 
+
 Step-1: I had my own web application projects so I hosted the source code on this github repository.
+
 
 Step-2: I installed minikube cluster on my windows machine using Docker as a driver (Kubernetes v1.28.3 on Docker 24.0.7) and after executing minikube start --driver=docker, I was able to view the cluster in my Docker Desktop.
 
+
 Then, I followed the offical guide to install and setup Argo CD into my cluster and when all my pods were in ready state, I port forwarded the service- ArgoCD to 8080 and accessed the Argo CD UI.
+
 
 Step=3: I then installed Argo Rollouts for my cluster and followed the offical guide.
 
 Step-4: Then, I dockerized two of my simple web applications (Netflix by Sarthak) and (Spotify by Sarthak) using a simple Dockerfile that contains nginx:alpine as base image. Also, I pushed the images to my public registry saarora123/spotifyv1 and saarora123/netflixv1
+
+
 Then in this github repository, I created a fresh kubernetes manifests file to use the latest docker image that I just built.
 Also, I created application.yaml which I applied to my cluster. Available in the main branch by the name application.yaml
+
 
 Then I checked the status of my application in Argo CD UI and it was healthy. It started monitoring this github repo.
 
@@ -32,7 +39,8 @@ Step-6: To trigger the rollout, I changed my deployment.yaml file to point to my
 
 ![Screenshot 2024-03-06 120127](https://github.com/sarthakarora9760/SpotifyUsingArgoCD/assets/60189057/81712f9f-50a3-477d-bd26-d86eef5e9e77)
 
-![Screenshot 2024-03-06 120127](https://github.com/sarthakarora9760/SpotifyUsingArgoCD/assets/60189057/e57635f8-37dd-454f-80f9-a5156f3ffbf1)
+![Screenshot 2024-03-06 120234](https://github.com/sarthakarora9760/SpotifyUsingArgoCD/assets/60189057/6324b887-c780-4b29-b907-a5cfa0382719)
+
 
 As I commit the changes, Argo CD service got out of sync and it started applying the changes and spinning up a new container.
 
