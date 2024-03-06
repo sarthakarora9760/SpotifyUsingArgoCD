@@ -1,17 +1,17 @@
 Notes:-
 <br><br>
 Docker images used in both applications:-<br><br>
-saarora123/spotifyv1, <br> saarora123/netflixv1<br><br>
+saarora123/spotifyv1 <br> saarora123/netflixv1<br><br>
 Step-1: I had my own web application projects so I hosted the source code for the same in this github repository under folders netflix and spotify.<br><br>
 
 
 Step-2: I installed minikube cluster on my windows machine using Docker as a driver (Kubernetes v1.28.3 on Docker 24.0.7) and after executing minikube start --driver=docker, I was able to view the cluster in my Docker Desktop.<br><br>
 
 
-Then, I followed the offical guide to install and setup Argo CD into my cluster and when all my pods were in ready state, I port forwarded the service- ArgoCD to 8080 and accessed the Argo CD UI.<br><br>
+Then, I followed the offical guide to install and setup Argo CD into my cluster and when all my pods were in ready state, I port forwarded the service- ArgoCD Server to 8080 and accessed the Argo CD UI.<br><br>
 
 
-Step=3: I then installed Argo Rollouts for my cluster and followed the offical guide.<br><br>
+Step-3: I then installed Argo Rollouts for my cluster and followed the offical guide.<br><br>
 
 
 Step-4: Then, I dockerized two of my simple web applications (Netflix by Sarthak) and (Spotify by Sarthak) using a simple Dockerfile that contains nginx:alpine as base image. Also, I pushed the images to my public registry saarora123/spotifyv1 and saarora123/netflixv1<br><br>
@@ -34,7 +34,7 @@ In my 8080 port, I was able to access the container.
 ![image](https://github.com/sarthakarora9760/SpotifyUsingArgoCD/assets/60189057/1bfa229a-d950-4263-9910-2446d244fb20)
 
 
-Step-5: Then, I created rollout.yaml to define canary rollout stratefy for my rollouts and I applied it to my cluster. It's available in this same github repository in the main branch by name rollout.yaml<br><br>
+Step-5: Then, I created rollout.yaml to define canary rollout strategy for my rollouts and I applied it to my cluster. It's available in this same github repository in the main branch by name rollout.yaml<br><br>
 
 Step-6: To trigger the rollout, I changed my deployment.yaml file to point to my new docker image saarora123/netflixv1<br><br>
 
@@ -53,6 +53,7 @@ After some time, It got synced and healthy
 
 In the logs, I was able to see a successfull rollout from previous version to new version. (Spotifyv1 to netflxv1)<br><br>
 
+![Uploading Screenshot 2024-03-06 120625.png…]()
 
 
 Cleanups:-<br><br>
